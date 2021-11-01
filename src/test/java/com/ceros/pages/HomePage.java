@@ -16,14 +16,38 @@ public class HomePage extends CerosLogin{
     @FindBy(xpath = "//button[normalize-space(text())='Open Menu']")
     public WebElement username;
 
-    @FindBy(xpath = "//span[normalize-space(text())='1']")
-    public WebElement cartItem;
 
-    @FindBy(id = "//span[@class='shopping_cart_badge']")
+    @FindBy(id = "shopping_cart_container")
     public WebElement cartBadge;
 
-    @FindBy( xpath = "//button[normalize-space(text())='Add to cart']")
+    @FindBy( xpath = "//div[@class='inventory_item_price']/following-sibling::button")
     public List<WebElement> inventoryList;
+
+    @FindBy (id = "checkout")
+    public WebElement checkOut;
+
+    @FindBy (id = "first-name")
+    public WebElement firstName;
+
+    @FindBy (id = "last-name")
+    public WebElement lastName;
+
+    @FindBy (id = "postal-code")
+    public WebElement zipCode;
+
+    @FindBy (id = "continue")
+    public WebElement continueButton;
+
+    @FindBy (id = "finish")
+    public WebElement finish;
+
+    @FindBy(xpath = "//span[@class='title']")
+    public WebElement title;
+
+    @FindBy(xpath = "//select[@class='product_sort_container']")
+    public WebElement sortSign;
+
+
 
 
 }

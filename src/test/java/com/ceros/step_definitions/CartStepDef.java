@@ -2,12 +2,14 @@ package com.ceros.step_definitions;
 
 import com.ceros.pages.CerosLogin;
 import com.ceros.pages.HomePage;
+import com.ceros.utilities.BrowserUtils;
 import com.ceros.utilities.ConfigurationReader;
 import com.ceros.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 public class CartStepDef {
     CerosLogin cerosLogin =  new CerosLogin();
@@ -49,6 +51,7 @@ public class CartStepDef {
                 break;
 
         }
+        BrowserUtils.waitFor(2);
 
     }
     @When("user adds <{int}> item to cart")
@@ -56,14 +59,22 @@ public class CartStepDef {
         for (int i = 0; i < int1; i++) {
             homePage.inventoryList.get(i).click();
         }
+        System.out.println(homePage.inventoryList.size());
+        BrowserUtils.waitFor(2);
     }
 
-    @Then("user should see <{int}> item in cart")
-    public void user_should_see_item_in_cart(Integer int1) {
 
-        Integer actual = homePage.cartBadge.getText();
+    @Then("user should see {string} item in cart")
+    public void user_should_see_item_in_cart(String string) {
+        homePage.cartBadge.click();
+        BrowserUtils.waitFor(2);
 
-    Assert.assertEquals();
+        String actual=
+Driver.get().findElement(By.xpath("//span[normalize-space(text())='"+ string +"']")).getText();
+
+        Assert.assertEquals(string,actual);
+        BrowserUtils.waitFor(2);
+
 
     }
 

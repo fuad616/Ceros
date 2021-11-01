@@ -34,8 +34,8 @@ public class LoginPageStepDef {
     }
     @Then("user is on home page")
     public void user_is_on_home_page() {
-
-        BrowserUtils.verifyElementDisplayed(homePage.cartItem);
+        BrowserUtils.waitFor(3);
+        BrowserUtils.verifyElementDisplayed(homePage.cartBadge);
 
     }
 

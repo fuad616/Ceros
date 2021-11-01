@@ -3,10 +3,12 @@ Feature: Ceros Login functionality
   I should get to home page
 
 
+
+
   Scenario Outline: Login functionality verification
     Given user is on login page
     When user enters "<username>" and "<password>"
-    And clicks on login button
+    And  clicks on login button
     Then user is on home page
 
     Examples:
